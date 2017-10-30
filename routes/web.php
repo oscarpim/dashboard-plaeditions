@@ -10,10 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'PedidosController@pedidosTotales');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+/*Route::get('/', function () {
+    return view('admin_template');
+});*/
 
 /**
  * Añade un nuevo usuario
@@ -33,6 +36,4 @@ Route::get('/usuarios', function () {
 });
 Route::get('/us', 'UsuariosController@index');
 
-Route::get('/dashboard', function(){
-    return view('admin_template');
-});
+

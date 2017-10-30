@@ -45,7 +45,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="dashboard" class="logo">
+    <a href="" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>P</b>ED</span>
       <!-- logo for regular state and mobile devices -->
@@ -524,26 +524,30 @@
 
     <!-- Main content -->
     <section class="content">
+     <h3>
+        Ventas PLA EDITIONS S.L (TODO)
+        <small>Mes de Octubre</small>
+      </h3>
       <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3>{{ $pedidos_totales }}</h3>
 
-              <p>New Orders</p>
+              <p>Pedidos Totales</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">Más info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-green">
+          <div class="small-box bg-yellow">
             <div class="inner">
               <h3>53<sup style="font-size: 20px">%</sup></h3>
 
@@ -558,16 +562,16 @@
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-yellow">
+          <div class="small-box bg-green">
             <div class="inner">
-              <h3>44</h3>
+              <h3>{{ $ganancias_totales }}</h3>
 
-              <p>User Registrations</p>
+              <p>Ganancias Totales</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">Más info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
