@@ -564,8 +564,7 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>{{ $ganancias_totales }}</h3>
-
+              <h3>{{ $ganancias_totales $aa}}€</h3>
               <p>Ganancias Totales</p>
             </div>
             <div class="icon">
