@@ -536,7 +536,7 @@
             <div class="inner">
               <h3>{{ $pedidos_totales }}</h3>
 
-              <p>Pedidos Totales</p>
+              <p>Total de pedidos realizados</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -549,14 +549,14 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h3>{{ $productosComprados_total }}</h3>
 
-              <p>Bounce Rate</p>
+              <p>Total de productos comprados</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">Más info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -564,7 +564,7 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>{{ $ganancias_totales $aa}}€</h3>
+              <h3>{{ money_format('%.2n',$ganancias_totales) }}€</h3>
               <p>Ganancias Totales</p>
             </div>
             <div class="icon">
@@ -578,19 +578,71 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>65</h3>
+              <h3>{{ $visitasWeb }}</h3>
 
-              <p>Unique Visitors</p>
+              <p>Visitas a la web</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">Más info<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
       </div>
       <!-- /.row -->
+      <!-- Tabla para mostrar estadisticas generales de todo PLA -->
+      <div class="row">
+          <div class="col-lg-12 col-xs-6">
+              <h2>Desglose de estadísticas</h2>
+              <p>Grupos en los que se dividen las estadísticas. Gancias en verde o rojo comparadas con el mes anterior.</p>
+              <table class="table table-hover table-responsive" style="background-color:white;">
+                <thead>
+                  <tr>
+                    <th>Tipo</th>
+                    <th>Pedidos totales</th>
+                    <th>Productos comprados</th>
+                    <th>Ganancias totales</th>
+                    <th>Ganancias comparado al mes anterior</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Tienda plaeditions.com</td>
+                    <td>{{$pedidos_totales}}</td>
+                    <td>{{$productosComprados_total}}</td>
+                    <td>{{money_format('%.2n',$ganancias_totales)}}€</td>
+                    @if ($ganancias_totales_2 > 0 OR $ganancias_totales_2 == 0)
+                        <td class="success">{{$ganancias_totales_2}}€</td>
+                    @else
+                        <td class="danger">{{$ganancias_totales_2}}€</td>
+                    @endif
+                  </tr>
+                  <tr>
+                    <td>Tiendas físicas</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Suscriptores</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Muestras</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+      </div>
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->
