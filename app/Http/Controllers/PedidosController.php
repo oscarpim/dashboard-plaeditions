@@ -7,6 +7,8 @@ use App\PedidosModel;
 use App\PedidosModel2;
 use App\ConexionesModel;
 use App\SuscriptoresModel;
+use App\SuscriptoresEnviosModel;
+use App\MuestrasModel;
 
 class PedidosController extends Controller
 {
@@ -49,14 +51,14 @@ class PedidosController extends Controller
         //Mostrar el número total de suscriptores
         $s = SuscriptoresModel::count();
         //Mostrar el numero de pedidos totales de los suscriptores mes octubre
-        $pedidos_totales_sus = PedidosModel::whereMonth('date_add', '10')->whereYear('date_add','2017')->count();
+        $pedidos_totales_sus = SuscriptoresEnviosModel::whereMonth('fecha', '10')->whereYear('fecha','2017')->first()->value('cantidad_envios');
 
 
         /********************************/
         /*** ESTADISTICAS DE MUESTRAS ***/
         /********************************/
         //Mostrar el numero de pedidos totales de muestras mes octubre
-        $pedidos_totales_muestras = PedidosModel::whereMonth('date_add', '10')->whereYear('date_add','2017')->count();
+        $pedidos_totales_muestras = MuestrasModel::whereMonth('fecha', '10')->whereYear('fecha','2017')->first()->value('cantidad_envios');
 
 
 
@@ -64,7 +66,7 @@ class PedidosController extends Controller
         /*****************/
         /*** RESULTADO ***/
         /*****************/
-        return view ('admin_template')->with(['pedidos_totales'=>$pedidos_totales, 'ganancias_totales'=>$ganancias_totales, 'ganancias_totales_2'=>$ganancias_totales_2,'ganancias_totales_anterior'=>$ganancias_totales_anterior, 'productosComprados_total'=>$productosComprados_total, 'visitasWeb'=>$visitasWeb]);
+        return view ('admin_template')->with(['pedidos_totales'=>$pedidos_totales, 'ganancias_totales'=>$ganancias_totales, 'ganancias_totales_2'=>$ganancias_totales_2,'ganancias_totales_anterior'=>$ganancias_totales_anterior, 'productosComprados_total'=>$productosComprados_total, 'visitasWeb'=>$visitasWeb, 'pedidos_totales_sus'=>$pedidos_totales_sus, 'pedidos_totales_muestras'=>$pedidos_totales_muestras]);
     }
 
 

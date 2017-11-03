@@ -524,10 +524,31 @@
 
     <!-- Main content -->
     <section class="content">
-     <h3>
-        Ventas PLA EDITIONS S.L (TODO)
-        <small>Mes de Octubre</small>
-      </h3>
+    <div class="row">
+        <div class="col-lg-4">
+            <h3>
+                Ventas PLA EDITIONS S.L (TODO)
+                <small>Mes de Octubre</small>
+            </h3>
+        </div>
+
+        <div class="col-lg-2">
+            <form action="/test/save" method="post" onchange="this.form.submit()">
+                <div class="form-group">
+                    <label>Fecha</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control datepicker" name="date">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <br>
+
       <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-lg-3 col-xs-6">
@@ -627,17 +648,17 @@
                   </tr>
                   <tr>
                     <td>Suscriptores</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{$pedidos_totales_sus}}</td>
+                    <td>{{$pedidos_totales_sus}}</td>
+                    <td>-</td>
+                    <td>-</td>
                   </tr>
                   <tr>
                     <td>Muestras</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{$pedidos_totales_muestras}}</td>
+                    <td>{{$pedidos_totales_muestras}}</td>
+                    <td>-</td>
+                    <td>-</td>
                   </tr>
                 </tbody>
               </table>
@@ -1324,5 +1345,13 @@
 <script src="{{ asset ('../vendor/almasaeed2010/adminlte/dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset ('../vendor/almasaeed2010/adminlte/dist/js/demo.js') }}"></script>
+<script>
+    $('.datepicker').datepicker({
+        format: "yyyy/mm/dd",
+        /*language: "es",*/
+        autoclose: true
+    });
+</script>
+
 </body>
 </html>
