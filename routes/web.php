@@ -11,6 +11,7 @@
 |
 */
 Route::get('/', 'PedidosController@index');
+Route::get('/insertar-prestashop', 'InsertarPrestashopController@index');
 
 
 

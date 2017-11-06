@@ -335,16 +335,23 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
+        <li class="">
+          <a href="/stats4pla/public">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          </a>
+        </li>
         <li class="active treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-edit"></i> <span>Insertar Datos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+            <li class="active"><a href="insertar-prestashop"><i class="fa fa-circle-o"></i> Prestashop</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Tiendas Físicas</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Suscriptores</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Muestras</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -616,7 +623,7 @@
       <div class="row">
           <div class="col-lg-12 col-xs-6">
               <h2>Desglose de estadísticas</h2>
-              <p>Grupos en los que se dividen las estadísticas. Gancias en verde o rojo comparadas con el mes anterior.</p>
+              <p>Grupos en los que se dividen las estadísticas. Ganancias en verde o rojo comparadas con el mes anterior.</p>
               <table class="table table-hover table-responsive" style="background-color:white;">
                 <thead>
                   <tr>

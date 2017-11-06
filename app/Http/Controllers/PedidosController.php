@@ -27,10 +27,12 @@ class PedidosController extends Controller
 
 
         //Mostrar todos los articulos comprados
-        $aPedidosFecha = PedidosModel::whereMonth('date_add', '10')->whereYear('date_add','2017')->get();
+        $primerIdOrder = PedidosModel::whereMonth('date_add', '10')->whereYear('date_add','2017')->get();
 
         //Mostrar la suma de la cantidad de productos comprados
-        $productosComprados_total = PedidosModel2::whereBetween('id_order',array(4689, 4690))->sum('product_quantity');
+        $primerIdOrder = PedidosModel::whereMonth('date_add', '10')->whereYear('date_add','2017')->orderBy('id_order','ASC')->value('id_order');
+        $ultimoIdOrder = PedidosModel::whereMonth('date_add', '10')->whereYear('date_add','2017')->orderBy('id_order','DESC')->value('id_order');
+        $productosComprados_total = PedidosModel2::whereBetween('id_order',array($primerIdOrder, $ultimoIdOrder))->sum('product_quantity');
 
         //Mostrar las conexiones-visitas realizadas en el mes de octubre
         $visitasWeb = ConexionesModel::whereMonth('date_add', '10')->whereYear('date_add','2017')->count();
