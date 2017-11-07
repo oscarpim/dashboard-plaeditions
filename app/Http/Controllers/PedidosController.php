@@ -9,10 +9,31 @@ use App\ConexionesModel;
 use App\SuscriptoresModel;
 use App\SuscriptoresEnviosModel;
 use App\MuestrasModel;
+use Carbon\Carbon;
 
 class PedidosController extends Controller
 {
     public function index(){
+
+        /********************************/
+        /*** OBTENER FECHAS ***/
+        /********************************/
+        //Mostrar fecha actual y comparaciones
+        $anoActual = Carbon::now()->year;
+
+
+
+
+        $start = '2013-01-01';
+        $end = Carbon::today();
+        $end->startOfDay();
+        $dates = array();
+
+        while ($start->lte($end)) {
+           $dates[] = $start->copy();
+           $start->addDay();
+        }
+
         /**********************************/
         /*** ESTADISTICAS DE PRESTASHOP ***/
         /**********************************/
@@ -68,7 +89,7 @@ class PedidosController extends Controller
         /*****************/
         /*** RESULTADO ***/
         /*****************/
-        return view ('admin_template')->with(['pedidos_totales'=>$pedidos_totales, 'ganancias_totales'=>$ganancias_totales, 'ganancias_totales_2'=>$ganancias_totales_2,'ganancias_totales_anterior'=>$ganancias_totales_anterior, 'productosComprados_total'=>$productosComprados_total, 'visitasWeb'=>$visitasWeb, 'pedidos_totales_sus'=>$pedidos_totales_sus, 'pedidos_totales_muestras'=>$pedidos_totales_muestras]);
+        return view ('admin_template')->with(['pedidos_totales'=>$pedidos_totales, 'ganancias_totales'=>$ganancias_totales, 'ganancias_totales_2'=>$ganancias_totales_2,'ganancias_totales_anterior'=>$ganancias_totales_anterior, 'productosComprados_total'=>$productosComprados_total, 'visitasWeb'=>$visitasWeb, 'pedidos_totales_sus'=>$pedidos_totales_sus, 'pedidos_totales_muestras'=>$pedidos_totales_muestras, 'anoActual'=>$anoActual, 'dates'=>$dates]);
     }
 
 

@@ -535,7 +535,7 @@
         <div class="col-lg-4">
             <h3>
                 Ventas PLA EDITIONS S.L (TODO)
-                <small>Mes de Octubre</small>
+                <small>Mes de Octubre {{ $anoActual }} {{$dates}}</small>
             </h3>
         </div>
 
@@ -578,7 +578,6 @@
           <div class="small-box bg-yellow">
             <div class="inner">
               <h3>{{ $productosComprados_total }}</h3>
-
               <p>Total de productos comprados</p>
             </div>
             <div class="icon">
