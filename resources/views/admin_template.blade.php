@@ -61,6 +61,7 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
+          <li><a style="hover:none;cursor:normal;">|{{$fechaHoy->format('d-m-Y')}}|</a></li>
           <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
@@ -532,26 +533,83 @@
     <!-- Main content -->
     <section class="content">
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-8">
             <h3>
                 Ventas PLA EDITIONS S.L (TODO)
-                <small>Mes de Octubre {{ $anoActual }} {{$dates}}</small>
+
+                <small>
+                del mes de
+                <!-- Obtener segun el numero, el nombre del mes -->
+                @if($mesSeleccionado==01)
+                    Enero
+                @elseif($mesSeleccionado==02)
+                    Febrero
+                @elseif($mesSeleccionado==03)
+                    Marzo
+                @elseif($mesSeleccionado==04)
+                    Abril
+                @elseif($mesSeleccionado==05)
+                    Mayo
+                @elseif($mesSeleccionado==06)
+                    Junio
+                @elseif($mesSeleccionado==07)
+                    Julio
+                @elseif($mesSeleccionado==8)
+                    Agosto
+                @elseif($mesSeleccionado==9)
+                    Septiembre
+                @elseif($mesSeleccionado==10)
+                    Octubre
+                @elseif($mesSeleccionado==11)
+                    Noviembre
+                @elseif($mesSeleccionado==12)
+                    Diciembre
+                @endif
+                <!-- Fin condicion mes nombre -->
+                de {{ $anoSeleccionado }}
+                </small>
             </h3>
+
         </div>
 
-        <div class="col-lg-2">
-            <form action="/test/save" method="post" onchange="this.form.submit()">
-                <div class="form-group">
-                    <label>Fecha</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control datepicker" name="date">
-                        <div class="input-group-addon">
-                            <span class="glyphicon glyphicon-th"></span>
-                        </div>
-                    </div>
-                </div>
-            </form>
+<div class="col-lg-4">
+    <form action="/stats4pla/public" method="get">
+        <div class="form-group">
+            <div class="col-xs-4">
+               <br>
+                <select class="form-control" name="mes">
+                       <option disabled selected value>Selecciona Mes</option>
+                       <option value="01">Enero</option>
+                       <option value="02">Febrero</option>
+                       <option value="03">Marzo</option>
+                       <option value="04">Abril</option>
+                       <option value="05">Mayo</option>
+                       <option value="06">Junio</option>
+                       <option value="07">Julio</option>
+                       <option value="08">Agosto</option>
+                       <option value="09">Septiembre</option>
+                       <option value="10">Octubre</option>
+                       <option value="11">Noviembre</option>
+                       <option value="12">Diciembre</option>
+                      </select>
+            </div>
+            <div class="col-xs-4">
+               <br>
+                <select class="form-control" name="ano">
+                       <option disabled selected value>Selecciona Año</option>
+                       <!-- imprimir los años desde el 2013 al ultimo registrado BD -->
+                        <?php
+                           for($i = $fechaHoy->format('Y'); $i >= 2013; $i--){
+                            print "<option value='$i'>$i</option>";
+                           }
+                        ?>
+                </select>
+            </div><br>
+            <button type="submit" class="btn btn-default">Ver Estadísticas</button>
         </div>
+    </form>
+
+</div>
     </div>
 
     <br>
@@ -591,8 +649,8 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>{{ money_format('%.2n',$ganancias_totales) }}€</h3>
-              <p>Ganancias Totales</p>
+              <h3>{{ money_format('%.2n',$ganancias_totales) }}€ <sup style="font-size:13px;vertical-align:super;">Imp. Incl</sup></h3>
+              <p>Ganancias Totales </p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
