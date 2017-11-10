@@ -39,10 +39,10 @@ class PedidosController extends Controller
         /**********************************/
 
         //Mostrar el numero de pedidos totales del prestashop ultimo mes registrado
-        $pedidos_totales = PedidosModel::whereMonth('date_add', $mesSeleccionado)->whereYear('date_add', $anoSeleccionado)->whereIn('current_state', [4, 5])->count();
+        $pedidos_totales = PedidosModel::whereMonth('date_add', $mesSeleccionado)->whereYear('date_add', $anoSeleccionado)->whereIn('current_state', [2, 4, 5])->count();
 
         //Mostrar las ganancias totales de los pedidos unicamente validos y mes anterior con dos decimales del ultimo mes registrado
-        $ganancias_totales = PedidosModel::whereMonth('date_add', $mesSeleccionado)->whereYear('date_add', $anoSeleccionado)->whereIn('current_state', [4, 5])->sum('total_paid');
+        $ganancias_totales = PedidosModel::whereMonth('date_add', $mesSeleccionado)->whereYear('date_add', $anoSeleccionado)->whereIn('current_state', [2, 4, 5])->sum('total_paid');
         $ganancias_totales_anterior = PedidosModel::whereMonth('date_add', $mesSeleccionado-1)->whereYear('date_add', $anoSeleccionado)->sum('total_paid');
         $ganancias_totales_2 = $ganancias_totales - $ganancias_totales_anterior;
 
