@@ -538,17 +538,41 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <h3>
-                            Insertar tablas de prestashop
+                            Insertar datos de muestras
                         </h3>
+                    </div>
 
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <form>
+                           <div class="form-group">
+                                <label for="exampleInputPassword1">Fecha de inserción</label>
+                                <div class="input-group date" data-provide="datepicker">
+                                    <input type="text" class="form-control">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
+                                </div>
+                                <small id="emailHelp" class="form-text text-muted">Elige la fecha del mes que hubo la cantidad de muestras.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Cantidad de Muestras</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Cantidad de muestras">
+                                <small id="emailHelp" class="form-text text-muted">La cantidad de muestras que quieres insertar de un mes.</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Añadir registro</button>
+                        </form>
                     </div>
                 </div>
-
-                <br>
-
         </div>
 
-        </section>
+        <br>
+
+    </div>
+
+    </section>
 
     </div>
     <!-- /.row (main row) -->
@@ -767,6 +791,7 @@
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button);
+
     </script>
     <!-- Bootstrap 3.3.7 -->
     <script src="{{ asset ('../vendor/almasaeed2010/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
@@ -803,6 +828,7 @@
             /*language: "es",*/
             autoclose: true
         });
+
     </script>
 
 </body>

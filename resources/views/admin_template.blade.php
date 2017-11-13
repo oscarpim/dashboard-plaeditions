@@ -350,9 +350,9 @@
           </a>
           <ul class="treeview-menu">
             <li class="active"><a href="insertar-prestashop"><i class="fa fa-circle-o"></i> Prestashop</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Tiendas Físicas</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Suscriptores</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Muestras</a></li>
+            <li><a href="insertar-fisicas"><i class="fa fa-circle-o"></i> Tiendas Físicas</a></li>
+            <li><a href="insertar-suscriptores"><i class="fa fa-circle-o"></i> Suscriptores</a></li>
+            <li><a href="insertar-muestras"><i class="fa fa-circle-o"></i> Muestras</a></li>
           </ul>
         </li>
         <li class="treeview">

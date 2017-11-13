@@ -13,7 +13,12 @@
 Route::get('/', 'PedidosController@index');
 Route::get('/{mes}/{ano}', function () {
 });
+
 Route::get('/insertar-prestashop', 'InsertarPrestashopController@index');
+Route::get('/insertar-fisicas', 'InsertarFisicasController@index');
+Route::get('/insertar-suscriptores', 'InsertarSuscriptoresController@index');
+Route::get('/insertar-muestras', 'InsertarMuestrasController@index');
+
 
 
 
