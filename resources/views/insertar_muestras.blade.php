@@ -545,11 +545,11 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-8">
-                        <form>
+                        <form action="/stats4pla/public/insertar-muestras" method="post">
                            <div class="form-group">
-                                <label for="exampleInputPassword1">Fecha de inserción</label>
+                                <label>Fecha de inserción</label>
                                 <div class="input-group date" data-provide="datepicker">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="fecha">
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-th"></span>
                                     </div>
@@ -557,12 +557,13 @@
                                 <small id="emailHelp" class="form-text text-muted">Elige la fecha del mes que hubo la cantidad de muestras.</small>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Cantidad de Muestras</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Cantidad de muestras">
+                                <label>Cantidad de Muestras</label>
+                                <input type="number" class="form-control" aria-describedby="" name="cantidad" placeholder="Cantidad de muestras">
                                 <small id="emailHelp" class="form-text text-muted">La cantidad de muestras que quieres insertar de un mes.</small>
                             </div>
 
                             <button type="submit" class="btn btn-primary">Añadir registro</button>
+                            <input type="hidden" name="_token" value="{{ Session::token() }}"></input>
                         </form>
                     </div>
                 </div>
