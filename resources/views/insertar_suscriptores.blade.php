@@ -351,9 +351,9 @@
             </span>
           </a>
                         <ul class="treeview-menu">
-                            <li class="active"><a href="insertar-prestashop"><i class="fa fa-circle-o"></i> Prestashop</a></li>
+                            <li><a href="insertar-prestashop"><i class="fa fa-circle-o"></i> Prestashop</a></li>
                             <li><a href="insertar-fisicas"><i class="fa fa-circle-o"></i> Tiendas Físicas</a></li>
-                            <li><a href="insertar-suscriptores"><i class="fa fa-circle-o"></i> Suscriptores</a></li>
+                            <li class="active"><a href="insertar-suscriptores"><i class="fa fa-circle-o"></i> Suscriptores</a></li>
                             <li><a href="insertar-muestras"><i class="fa fa-circle-o"></i> Muestras</a></li>
                         </ul>
                     </li>
@@ -537,17 +537,42 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <h3>
-                            Insertar tablas de prestashop
+                            Insertar datos de Suscriptores
                         </h3>
+                    </div>
 
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <form action="/stats4pla/public/insertar-muestras" method="post">
+                           <div class="form-group">
+                                <label>Fecha de inserción</label>
+                                <div class="input-group date" data-provide="datepicker">
+                                    <input type="text" class="form-control" name="fecha">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
+                                </div>
+                                <small id="emailHelp" class="form-text text-muted">Elige la fecha del mes que hubo la cantidad de muestras.</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Cantidad de Muestras</label>
+                                <input type="number" class="form-control" aria-describedby="" name="cantidad" placeholder="Cantidad de muestras">
+                                <small id="emailHelp" class="form-text text-muted">La cantidad de muestras que quieres insertar de un mes.</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Añadir registro</button>
+                            <input type="hidden" name="_token" value="{{ Session::token() }}"></input>
+                        </form>
                     </div>
                 </div>
-
-                <br>
-
         </div>
 
-        </section>
+        <br>
+
+    </div>
+
+    </section>
 
     </div>
     <!-- /.row (main row) -->
@@ -766,6 +791,7 @@
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button);
+
     </script>
     <!-- Bootstrap 3.3.7 -->
     <script src="{{ asset ('../vendor/almasaeed2010/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
@@ -802,6 +828,7 @@
             /*language: "es",*/
             autoclose: true
         });
+
     </script>
 
 </body>

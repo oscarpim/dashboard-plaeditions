@@ -48,7 +48,6 @@
         <header class="main-header">
             <!-- Logo -->
             <a href="/stats4pla/public" class="logo">
-            <a href="/stats4pla/public" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>P</b>ED</span>
                 <!-- logo for regular state and mobile devices -->
@@ -352,10 +351,10 @@
             </span>
           </a>
                         <ul class="treeview-menu">
-                            <li class="active"><a href="/insertar-prestashop"><i class="fa fa-circle-o"></i> Prestashop</a></li>
+                            <li><a href="insertar-prestashop"><i class="fa fa-circle-o"></i> Prestashop</a></li>
                             <li><a href="insertar-fisicas"><i class="fa fa-circle-o"></i> Tiendas Físicas</a></li>
                             <li><a href="insertar-suscriptores"><i class="fa fa-circle-o"></i> Suscriptores</a></li>
-                            <li><a href="insertar-muestras"><i class="fa fa-circle-o"></i> Muestras</a></li>
+                            <li class="active"><a href="insertar-muestras"><i class="fa fa-circle-o"></i> Muestras</a></li>
                         </ul>
                     </li>
                     <li class="treeview">

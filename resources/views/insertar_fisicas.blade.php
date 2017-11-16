@@ -351,8 +351,8 @@
             </span>
           </a>
                         <ul class="treeview-menu">
-                            <li class="active"><a href="insertar-prestashop"><i class="fa fa-circle-o"></i> Prestashop</a></li>
-                            <li><a href="insertar-fisicas"><i class="fa fa-circle-o"></i> Tiendas Físicas</a></li>
+                            <li><a href="insertar-prestashop"><i class="fa fa-circle-o"></i> Prestashop</a></li>
+                            <li class="active"><a href="insertar-fisicas"><i class="fa fa-circle-o"></i> Tiendas Físicas</a></li>
                             <li><a href="insertar-suscriptores"><i class="fa fa-circle-o"></i> Suscriptores</a></li>
                             <li><a href="insertar-muestras"><i class="fa fa-circle-o"></i> Muestras</a></li>
                         </ul>
@@ -534,20 +534,106 @@
 
             <!-- Main content -->
             <section class="content">
+                <!-- Insertar una tienda nueva -->
                 <div class="row">
                     <div class="col-lg-4">
                         <h3>
-                            Insertar tablas de prestashop
+                            Insertar una nueva Tienda Física
                         </h3>
+                    </div>
 
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <form action="/stats4pla/public/insertar-fisicas" method="post">
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text" class="form-control" name="nombre" required>
+                                <small id="emailHelp" class="form-text text-muted">Elige la fecha del mes que hubo la cantidad de envios.</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Dirección</label>
+                                <input type="text" class="form-control" name="direccion" required>
+                                <small>Dirección fiscal de la tienda</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Teléfono</label>
+                                <input type="text" class="form-control" name="telefono">
+                                <small>Teléfono de la empresa que estás ingresando</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Correo</label>
+                                <input type="email" class="form-control" name="correo">
+                                <small>Correo de la empresa</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Persona</label>
+                                <input type="text" class="form-control" name="persona">
+                                <small>Persona de contacto de la empresa</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Añadir Tienda</button>
+                            <input type="hidden" name="_token" value="{{ Session::token() }}"></input>
+                        </form>
+                    </div>
+                </div>
+                <!-- Fin de insertar una tienda -->
+                <br>
+                <hr class="col-lg-8" style="border-bottom:1px solid #9A9C99;">
+                <br>
+                <!-- Fila para insertar envios a tiendas -->
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h3>
+                            Insertar envíos de las Tiendas Físicas
+                        </h3>
                     </div>
                 </div>
 
-                <br>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <form action="/stats4pla/public/insertar-fisicas" method="post">
+                           <div class="form-group">
+                                <label>ID Tienda</label>
+                                <select name="id_tienda" class="form-control">
+                                    <option disabled selected value>Selecciona Tienda</option>
+                                    <!-- imprimir los nombres de tiendas de la bd -->
+                                    @foreach($aTiendas as $tienda)
+                                        <option value='{{$tienda->id_tienda}}'>{{$tienda->nombre_tienda}}</option>
+                                    @endforeach
+                                </select>
+                                <small id="emailHelp" class="form-text text-muted">Selecciona la Tienda a la que le añades el envio</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Fecha de inserción</label>
+                                <div class="input-group date" data-provide="datepicker">
+                                    <input type="text" class="form-control" name="fecha">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
+                                </div>
+                                <small id="emailHelp" class="form-text text-muted">Elige la fecha del mes que hubo la cantidad de envios.</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Cantidad de Envios</label>
+                                <input type="number" class="form-control" aria-describedby="" name="cantidad">
+                                <small id="emailHelp" class="form-text text-muted">La cantidad de envios que quieres insertar de un mes.</small>
+                            </div>
 
+                            <button type="submit" class="btn btn-primary">Añadir Envío</button>
+                            <input type="hidden" name="_token" value="{{ Session::token() }}"></input>
+                        </form>
+                    </div>
+                </div>
+                <!-- Fin envios a tiendas -->
+                <br><br><br>
         </div>
 
-        </section>
+        <br>
+
+    </div>
+
+    </section>
 
     </div>
     <!-- /.row (main row) -->
@@ -766,6 +852,7 @@
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button);
+
     </script>
     <!-- Bootstrap 3.3.7 -->
     <script src="{{ asset ('../vendor/almasaeed2010/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
@@ -802,6 +889,7 @@
             /*language: "es",*/
             autoclose: true
         });
+
     </script>
 
 </body>
